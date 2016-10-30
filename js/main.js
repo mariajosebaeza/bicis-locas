@@ -8,7 +8,8 @@
 //Si algún campo presenta error debe informarse al usuario por medio de un alert.
 
 var nombre = document.getElementById("name").value;
-
+var soloLetras = /^[A-Za-z\_\-\.\s\xF1\xD1]+$/;
+var correo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
 function validateForm(){
 
@@ -45,8 +46,8 @@ function apellido(){
 apellido();
 
 function correo(){
-	var email = document.getElementById('input-email')value;
-	if (email.length == 0){
+	var correo = document.getElementById('input-email')value;
+	if (correo.length == 0){
 		alert("Correo ingresado no Valido");
 		return false;
 	}
