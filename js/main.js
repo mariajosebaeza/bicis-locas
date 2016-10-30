@@ -11,32 +11,71 @@ var nombre = document.getElementById("name").value;
 
 
 function validateForm(){
-	valor = document.getElementById("name").value;
-	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-  	return false;                                                      // si el largo es igual a 0, si el valor es igual a null, o si no es una frase regular)
+
+function nombre(){
+	var nombre = document.getElementById("name").value;
+	if(nombre.length == 0) {
   	alert("Ingrese Nombre");
-}
+  	return false;                                                      // si el largo es igual a 0, si el valor es igual a null, o si no es una frase regular	
+	}
 	if(!soloLetras.test(nombre)){
 		alert("Ingrese solo letras");     
 		return false;                                                  //hasta aca solo se valida el nombre 
+	}else if(nombre.substring(0,1) !== nombre.substring(0,1).toUpperCase()){
+		alert("Ingrese la inicial con mayúscula");
+		return false;
 	}
-
-var apellido = document.getElementById("lastname").value;
-if (apellido == ""){
-	alert ("Debe ingresar apellido");
-	return false;
 }
-if(!soloLetras.test(apellido)){
-		alert("Ingrese solo letras");                                   //valida apellido, que solo tenga letras, y que no sea espacio en blanco 
-		return false;    
+nombre();
 
+function apellido(){
+	var apellido = document.getElementById("lastname").value;
+	if(apellido.length == 0){
+		alert("Ingrese su apellido");
+		return false;
+	}
+	if(!soloLetras.test(apellido)){
+		alert("Debe ingresar solo letras");
+		return false;
+	}else if(apellido.substring(0,1) !== apellido.substring(0,1).toUpperCase()){
+		alert("Ingrese Su inicial con mayúscula");
+		return false;
+	}
+}
+apellido();
 
-	
+function correo(){
+	var email = document.getElementById('input-email')value;
+	if (email.length == 0){
+		alert("Correo ingresado no Valido");
+		return false;
+	}
+}
+correo();
 
+function contraseña(){
+	var password = document.getElementById('input-password')value;
+	if(password.length == 0){
+		alert("Debe su password");
+		return false;
+	}else if(password.length<6){
+		alert("La contraseña debe tener más de 6 caracteres");
+		return false;
+	}else{
+		alert("Su contraseña es segura");
+		return true;
+	}
+}
+contraseña();
 
-
-/* valor = document.getElementById("input-email").value;
-if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor)) ) {
-  return false;
-}   validacion correo */
-
+function selecionBici(){
+	var bicicleta = document.getElementByTagName('select');
+	for(var i = 0; i < bicicleta.length; i++){
+		if (bicicleta[i].value ==="0"){
+			alert("Debes seleccionar una bicicleta");
+			return false;
+		}
+	}
+		return false,
+}
+selecionBici();
